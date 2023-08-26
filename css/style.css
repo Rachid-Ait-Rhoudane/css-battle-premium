@@ -5,74 +5,62 @@
 }
 
 body {
-    min-height: 100vh;
+    background-color: #62306D;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ccc;
-}
+    min-height: 100vh;
+  }
 
-.wrapper-a,
-.wrapper-c,
-.wrapper-b{
-    position: absolute;
-    width: fit-content;
-}
-
-.wrapper-a{
-    transform: rotate3d(1, 1, 1, -60deg);
-}
-
-.wrapper-c{
-    transform: rotate3d(1, 1, 2, 60deg);
-}
-
-.circle-a,
-.circle-b,
-.circle-c{
+  div{
     position: relative;
-    width: 200px;
-    height: 200px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: transparent blue blue blue;
-    border-left: none;
+    width: 124px;
+    height: 124px;
+    background-color: #F7EC7D;
     border-radius: 50%;
-}
+    outline: 20px solid #62306D;
+  }
 
-.circle-a,
-.circle-c{
-    transform: scaleY(2.5);
-    animation: rotate-a-c 3s linear infinite;
-}
-
-.circle-b{
-    transform: scaleY(2);
-    animation: rotate-b 3s linear infinite;
-}
-
-
-.circle-a::before,
-.circle-b::before,
-.circle-c::before{
+  div::before{
     content: "";
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #F7EC7D;
     border-radius: 50%;
-    background-color: blue;
-    top: 20px;
-    right: 20px;
-}
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
 
-@keyframes rotate-a-c {
-    100%{
-        transform: scaleY(2.5) rotate(360deg);
-    }
-}
+  div::after{
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: #F7EC7D;
+    border-radius: 50%;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
 
-@keyframes rotate-b{
-    100%{
-        transform: scaleY(2) rotate(360deg);
-    }
-}
+  .left,
+  .right{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-color: #F7EC7D;
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  .left{
+    right: -10px
+  }
+
+  .right {
+    left: -10px
+  }
