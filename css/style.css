@@ -1,127 +1,78 @@
-*{
+* {
     box-sizing: border-box;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 
-body{
+body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    background-color: #eee;
-}
-
-.wrapper {
-    margin-top: 75px;
-    width: 80%;
-}
-
-.wrapper .task-form{
-    display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 10px;
-    width: 100%;
-    height: 100px;
     background-color: #ccc;
-    border-radius: 20px;
-    padding: 20px;
 }
 
-@media (max-width: 767px){
-    .wrapper .task-form{
-        flex-direction: column;
-        height: 150px;
+.wrapper-a,
+.wrapper-c,
+.wrapper-b{
+    position: absolute;
+    width: fit-content;
+}
+
+.wrapper-a{
+    transform: rotate3d(1, 1, 1, -60deg);
+}
+
+.wrapper-c{
+    transform: rotate3d(1, 1, 2, 60deg);
+}
+
+.circle-a,
+.circle-b,
+.circle-c{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent blue blue blue;
+    border-left: none;
+    border-radius: 50%;
+}
+
+.circle-a,
+.circle-c{
+    transform: scaleY(2.5);
+    animation: rotate-a-c 3s linear infinite;
+}
+
+.circle-b{
+    transform: scaleY(2);
+    animation: rotate-b 3s linear infinite;
+}
+
+
+.circle-a::before,
+.circle-b::before,
+.circle-c::before{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: blue;
+    top: 20px;
+    right: 20px;
+}
+
+@keyframes rotate-a-c {
+    100%{
+        transform: scaleY(2.5) rotate(360deg);
     }
 }
 
-.wrapper .task-form input[name="task"]{
-    flex: 1;
-    height: 55px;
-    border-radius: 20px;
-    padding-left: 10px;
-    caret-color: grey;
-    border: 1px solid grey;
-    font-size: 20px;
-    color: grey;
-}
-
-@media (max-width: 767px){
-    .wrapper .task-form input[name="task"]{
-        width: 100%;
-        font-size: 14px;
+@keyframes rotate-b{
+    100%{
+        transform: scaleY(2) rotate(360deg);
     }
-}
-
-.wrapper .task-form input[name="task"]:focus{
-    outline: none;
-}
-
-.wrapper .task-form input[type="submit"]{
-    padding: 15px 30px;
-    border-radius: 20px;
-    cursor: pointer;
-    background-color: red;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    border: 1px solid grey;
-}
-
-@media (max-width: 767px){
-    .wrapper .task-form input[type="submit"]{
-        padding: 10px 20px;
-        font-size: 16px;
-        border-radius: 10px;
-    }
-}
-
-.wrapper .task-form input[type="submit"]:hover{
-    background-color: rgb(206, 2, 2);
-}
-
-.wrapper .show-tasks {
-    width: 100%;
-    min-height: 100px;
-    background-color: #ccc;
-    border-radius: 20px;
-    margin-top: 25px;
-}
-
-.show-tasks{
-    padding: 20px;
-}
-
-.show-tasks .task{
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-}
-
-@media (max-width: 767px){
-    .show-tasks .task{
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .show-tasks .task .task-description{
-        text-align: center;
-    }
-}
-
-.show-tasks .task .btn-delete{
-    padding: 10px 20px;
-    background-color: red;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.show-tasks .task .btn-delete:hover{
-    background-color: rgb(206, 2, 2);
 }
